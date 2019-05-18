@@ -1,0 +1,18 @@
+<div class="card text-center" >
+    <img class="card-img-top img-thumbnail" src="../../../assets/user.png" alt="user">
+  <div class="card-body">
+    <h4 class="card-title">
+      <a href="http://{{user.website}}">{{user.name}}</a>
+    </h4>
+    <p class="card-text">E-Mail : {{user.email}}</p>
+    <p class="card-text">Phone : {{user.phone}}</p>
+
+    <p class="card-text">Address : {{user.address.city}}, {{user.address.street}}, {{user.address.suite}}, ZIP :
+      {{user.address.zipcode}} </p>
+    <p class="card-text">Company : {{user.company.name}}</p>
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="['/users/', user.id]" class="btn btn-secondary">Details</a>
+    <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete Item</button>
+  </div>
+</div>
