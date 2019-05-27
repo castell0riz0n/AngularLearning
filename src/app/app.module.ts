@@ -14,6 +14,8 @@ import { CardComponent } from './components/card/card.component';
 
 import { UserService } from './services/user.service';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
+import { FormsModule } from '@angular/forms';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UserDetailResolver } from './_resolvers/user-detail.resolver';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     BsDropdownModule.forRoot(),
+    NgxLoadingModule.forRoot({}),
     BrowserAnimationsModule
   ],
   providers: [

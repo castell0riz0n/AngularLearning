@@ -13,23 +13,34 @@ export class UsersComponent implements OnInit {
   // Variables
   user: User;
   users: User[];
+  availability = false;
+  isLoading: boolean = false;
 
   constructor(
     private userSv: UserService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.getUsersList();
   }
 
   getUsersList() {
-    return this.userSv.getUserlist().subscribe(response => {
-      this.users = response;
-    });
+    this.isLoading = true;
+    setTimeout(() => {
+      return this.userSv.getUserlist().subscribe(response => {
+        this.isLoading = false;
+        this.users = response;
+      });
+    }, 2000);
+
   }
 
   onDeleteUser(userId) {
     const userIndex = this.users.findIndex(i => i.id === userId);
     this.users.splice(userIndex, 1);
+  }
+
+  checkAvailablity() {
+
   }
 }

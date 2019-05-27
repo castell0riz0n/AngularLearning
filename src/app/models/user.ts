@@ -25,3 +25,8 @@ export interface Company {
     catchPhrase: string;
     bs: string;
 }
+
+export interface UserToRegister{
+    id: number;
+    name: string;
+}

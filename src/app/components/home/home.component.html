@@ -1,3 +1,24 @@
-<p>
-  home works!
-</p>
+
+<div class="container pt-2">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"
+              class="form-control"
+              [(ngModel)]="username"
+              name="username" 
+              id="username" 
+              aria-describedby="helpId" 
+              placeholder="Enter username"
+              autocomplete="off"
+              #user
+              (keyup)="checkAvailability(user.value)"
+            >
+            <small id="helpId" class="form-text text-muted">Enter unique username : You Enterd({{username}})</small>
+            <small id="helpId" class="form-text text-muted" *ngIf="availability == true && user.value && user.value.length >= 3">User Available</small>
+            <small id="helpId" class="form-text text-muted" *ngIf="availability == false && user.value && user.value.length >= 3">User Not Available</small>
+          </div>
+    </div>
+</div>
+
+

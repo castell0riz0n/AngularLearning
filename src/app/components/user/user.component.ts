@@ -11,14 +11,20 @@ import { Post } from 'src/app/models/post';
 export class UserComponent implements OnInit {
 
   posts: Post[];
+  isLoading: boolean = false;
   constructor(
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.posts = data['user'];
-    });
+    this.isLoading = true;
+    setTimeout(() => {
+      this.route.data.subscribe(data => {
+        this.isLoading = false;
+        this.posts = data['user'];
+      });
+    }, 3000);
+
     console.log(this.posts);
   }
 
